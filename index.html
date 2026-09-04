@@ -1,242 +1,209 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>고흥 녹동항 수산물센터</title>
-  <style>
-    /* 기본 레이아웃 스타일 */
-    body {
-      font-family: 'Noto Sans KR', sans-serif;
-      margin: 0;
-      padding: 20px;
-      background-color: #f4f6f9;
-      display: flex;
-      justify-content: center;
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>고흥 녹동항 수산물센터</title>
+<style>
+.menu-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:900px;margin:0 auto}
+.menu-item{border:1px solid #d9e2ec;border-radius:22px;background:#fff;overflow:hidden;box-shadow:0 8px 24px rgba(0,40,80,.08)}
+.menu-button{width:100%;border:0;background:#fff;cursor:pointer;padding:28px 20px 22px;font:inherit;color:#10243e}
+.round-photo{width:130px;height:130px;border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:58px;background:#eaf5ff;border:5px solid #fff;box-shadow:0 4px 16px rgba(0,60,120,.15)}
+.menu-button h3{margin:5px 0;font-size:24px}.menu-button p{margin:5px 0;color:#667}
+.detail{display:none;border-top:1px solid #e1e8ef;padding:24px 26px;background:#f8fbfe;text-align:left;line-height:1.8}
+.detail.open{display:block}
+.detail h4{margin:0 0 8px;color:#0755a5;font-size:19px}
+.detail ul{margin:8px 0 0;padding-left:20px}
+@media(max-width:850px){.menu-wrap{grid-template-columns:1fr 1fr}.round-photo{width:110px;height:110px;font-size:50px}}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,"Noto Sans KR",sans-serif;color:#10243e}
+a{text-decoration:none;color:inherit}.wrap{max-width:1180px;margin:auto;padding:0 20px}
+header{position:sticky;top:0;background:#fff;z-index:10;border-bottom:1px solid #ddd}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-size:21px;font-weight:800;color:#064b9b}.logo small{display:block;font-size:11px;color:#333}
+nav{display:flex;gap:20px;font-size:14px}.call{background:#064b9b;color:white;padding:13px 17px;border-radius:8px;font-weight:700}
+.hero{background:linear-gradient(135deg,#e9f4ff,#fff);padding:75px 0}.hero h1{font-size:47px;line-height:1.2;margin:0 0 18px}.hero h1 span{color:#0755a5}
+.hero p{font-size:18px;line-height:1.7}.buttons{display:flex;gap:12px;margin-top:26px}.btn{padding:14px 22px;border-radius:8px;font-weight:700;border:1px solid #0755a5}.primary{background:#0755a5;color:#fff}
+.features{display:grid;grid-template-columns:repeat(5,1fr);background:#0755a5;color:#fff}.feature{text-align:center;padding:22px;font-weight:700;border-right:1px solid #4f82bd}
+section{padding:62px 0}h2{font-size:31px;text-align:center;margin:0 0 9px}.sub{text-align:center;color:#667;margin-bottom:32px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.card{border:1px solid #ddd;border-radius:12px;padding:24px;text-align:center;background:#fff}.icon{font-size:40px}.card h3{margin:9px 0}.card p{color:#667;line-height:1.6}
+.products{background:#f4f8fc}.price{font-weight:800;color:#0755a5}.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}.step{padding:20px;border:1px solid #ddd;border-radius:12px;text-align:center}
+.contact{background:#062d5a;color:#fff}.contact-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}.contact h2{text-align:left}
+footer{background:#031b35;color:#b9c8d8;text-align:center;padding:22px;font-size:13px}
+@media(max-width:800px){nav{display:none}.hero h1{font-size:36px}.features,.cards,.steps,.contact-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.features,.cards,.steps,.contact-grid{grid-template-columns:1fr}.hero{padding:50px 0}}
 
-    .container {
-      max-width: 900px;
-      width: 100%;
-      text-align: center;
-    }
-
-    .section-title {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 25px;
-      color: #333;
-    }
-
-    /* 카드 메뉴 스타일 */
-    .card-grid {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-    }
-
-    .card {
-      background: #ffffff;
-      border: 1px solid #e1e5ee;
-      border-radius: 16px;
-      padding: 30px 20px;
-      flex: 1;
-      cursor: pointer;
-      transition: all 0.2s ease-in-out;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-      border-color: #0056b3;
-    }
-
-    .icon-wrapper {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 15px;
-      background-color: #eef5ff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .icon-wrapper img {
-      width: 45px;
-      height: 45px;
-      object-fit: contain;
-    }
-
-    .card h3 {
-      font-size: 18px;
-      margin: 10px 0;
-      color: #111;
-    }
-
-    .card p {
-      font-size: 13px;
-      color: #666;
-      margin: 0;
-      line-height: 1.4;
-    }
-
-    /* 팝업 모달 스타일 */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      position: relative;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      max-width: 600px;
-      width: 90%;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      animation: fadeIn 0.3s ease;
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 15px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #eee;
-    }
-
-    .modal-title {
-      font-size: 18px;
-      font-weight: bold;
-      color: #222;
-    }
-
-    .close-btn {
-      font-size: 24px;
-      font-weight: bold;
-      color: #888;
-      cursor: pointer;
-      border: none;
-      background: none;
-    }
-
-    .close-btn:hover {
-      color: #000;
-    }
-
-    .modal-body img {
-      width: 100%;
-      height: auto;
-      max-height: 400px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-  </style>
+button{font-family:inherit}
+.features button{appearance:none;cursor:pointer;color:#fff;background:#0755a5}
+.main-menu{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:0 auto 34px}
+.main-card{border:1px solid #d9e2ec;border-radius:16px;background:#fff;padding:22px 16px 20px;cursor:pointer;box-shadow:0 8px 24px rgba(0,40,80,.08);color:#10243e}
+.main-card:hover{transform:translateY(-2px)}
+.main-card h3{margin:8px 0 4px;font-size:19px}.main-card p{margin:0;color:#667;font-size:13px}
+.detail-panel{display:none;grid-template-columns:250px 1fr;gap:28px;align-items:start;background:#f5f9fd;padding:22px;border-radius:8px;max-width:1080px;margin:0 auto;min-height:210px}
+.detail-panel.active{display:grid}
+.selected-card{background:#fff;border:1px solid #dce5ee;border-radius:16px;padding:22px 15px;text-align:center;box-shadow:0 5px 18px rgba(0,40,80,.08)}
+.selected-card .round-photo{width:112px;height:112px;font-size:50px}
+.selected-card h3{margin:7px 0 4px}.selected-card p{font-size:13px;color:#667;margin:0;line-height:1.5}
+.panel-content{padding:8px 4px}.panel-content>h3{font-size:23px;margin:0 0 15px;border-bottom:1px solid #d9e2ec;padding-bottom:10px}
+.detail-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.info-card{background:#fff;border:1px solid #d9e2ec;border-radius:8px;padding:15px 10px;text-align:center;min-height:150px}
+.info-card .icon{font-size:31px}.info-card h4{margin:6px 0;font-size:14px}.info-card p{font-size:12px;color:#667;line-height:1.55;margin:0 0 7px}.info-card b{font-size:11px;color:#0755a5}
+.abalone-content{background:#fff;border-radius:12px;padding:22px;min-height:160px}.abalone-content p{line-height:1.8;color:#5f6c79}
+@media(max-width:850px){.main-menu{grid-template-columns:1fr 1fr}.detail-panel.active{grid-template-columns:190px 1fr}.detail-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.main-menu{grid-template-columns:1fr}.detail-panel.active{grid-template-columns:1fr}.detail-grid{grid-template-columns:1fr}.features{grid-template-columns:1fr 1fr}.features .feature{padding:15px 8px}}
+</style>
 </head>
 <body>
+<header><div class="wrap nav">
+<div class="logo">🐟 고흥 녹동항<br>수산물센터<small>낚시 후 잡은 생선, 깔끔하게 손질해드립니다.</small></div>
+<nav><a href="#service">수산물 손질서비스</a><a href="#products">반건조 수산물</a><a href="#how">이용방법</a><a href="#location">오시는 길</a></nav>
+<a class="call" href="tel:01026714516">☎ 010-2671-4516</a>
+</div></header>
 
-  <div class="container">
-    <h2 class="section-title">서비스 안내</h2>
-    
-    <!-- 3개 메인 버튼 카트 영역 -->
-    <div class="card-grid">
-      <!-- 1. 생선 손질 -->
-      <div class="card" onclick="openModal('fish')">
-        <div class="icon-wrapper">
-          <img src="https://cdn-icons-png.flaticon.com/512/2970/2970053.png" alt="생선 손질 아이콘">
-        </div>
+<section class="hero"><div class="wrap">
+<h1>녹동항에서 잡은 생선,<br><span>먹기 좋게 깔끔하게</span> 손질해드립니다.</h1>
+<p>낚시 후 바로 맡기시면 원하는 방식으로 깔끔하게 손질해드립니다.</p>
+<div class="buttons"><a class="btn primary" href="#service">서비스 안내</a><a class="btn" href="tel:01026714516">전화문의 010-2671-4516</a></div>
+</div></section>
+
+
+<div class="features">
+  <button class="feature" onclick="showPanel('clean')">🐟<br>전문 손질</button>
+  <button class="feature" onclick="showPanel('fillet')">🔪<br>필렛 손질</button>
+  <button class="feature" onclick="showPanel('dry')">☀️<br>반건조 준비</button>
+  <button class="feature" onclick="showPanel('price')">👍<br>합리적인 가격</button>
+  <button class="feature" onclick="showPanel('quick')">⏱️<br>빠른 서비스</button>
+</div>
+
+<section id="service">
+  <div class="wrap">
+    <h2>수산물 손질서비스</h2>
+    <div class="sub">원하시는 메뉴를 누르면 아래처럼 자세한 내용이 펼쳐집니다.</div>
+
+    <div class="main-menu">
+      <button class="main-card" onclick="showPanel('clean')">
+        <div class="round-photo">🐟</div>
         <h3>생선 손질</h3>
-        <p>잡은 생선을 깔끔하게 손질해 드립니다.</p>
-      </div>
-
-      <!-- 2. 반건조 수산물 -->
-      <div class="card" onclick="openModal('dried')">
-        <div class="icon-wrapper">
-          <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" alt="반건조 아이콘">
-        </div>
+        <p>잡은 생선을 깔끔하게 손질해드립니다.</p>
+      </button>
+      <button class="main-card" onclick="showPanel('dry')">
+        <div class="round-photo">☀️</div>
         <h3>반건조 수산물</h3>
         <p>반건조 수산물 상품을 준비합니다.</p>
-      </div>
-
-      <!-- 3. 전복 유통 -->
-      <div class="card" onclick="openModal('abalone')">
-        <div class="icon-wrapper">
-          <img src="https://cdn-icons-png.flaticon.com/512/3082/3082060.png" alt="전복 아이콘">
-        </div>
+      </button>
+      <button class="main-card" onclick="showPanel('abalone')">
+        <div class="round-photo">🦪</div>
         <h3>전복 유통</h3>
         <p>전복 유통 사업을 별도로 운영합니다.</p>
+      </button>
+    </div>
+
+    <div class="detail-panel" id="panel-clean">
+      <div class="selected-card">
+        <div class="round-photo">🐟</div><h3>생선 손질</h3>
+        <p>잡은 생선을 깔끔하게 손질해드립니다.</p>
+      </div>
+      <div class="panel-content">
+        <h3>🐟 생선 손질</h3>
+        <div class="detail-grid">
+          <div class="info-card"><div class="icon">🐟</div><h4>생선 손질</h4><p>비늘·내장 제거 등 원하시는 방식으로 깔끔하게 손질합니다.</p></div>
+          <div class="info-card"><div class="icon">🔪</div><h4>필렛(포 뜨기)</h4><p>회로 드실 수 있도록 먹기 편하게 포를 떠드립니다.</p></div>
+          <div class="info-card"><div class="icon">📦</div><h4>진공포장</h4><p>필요하신 경우 신선도 유지를 위한 포장도 안내해드립니다.</p></div>
+          <div class="info-card"><div class="icon">🧊</div><h4>보관 안내</h4><p>아이스팩 등으로 안전하게 보관할 수 있도록 안내합니다.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-panel" id="panel-fillet">
+      <div class="selected-card">
+        <div class="round-photo">🔪</div><h3>필렛 손질</h3>
+        <p>회로 드실 수 있도록 포를 떠드립니다.</p>
+      </div>
+      <div class="panel-content">
+        <h3>🔪 필렛 손질</h3>
+        <div class="detail-grid">
+          <div class="info-card"><div class="icon">🔪</div><h4>포 뜨기</h4><p>회나 구이 등 원하시는 용도에 맞춰 손질합니다.</p></div>
+          <div class="info-card"><div class="icon">🐟</div><h4>깔끔한 손질</h4><p>비늘과 내장을 정리한 뒤 먹기 편하게 손질합니다.</p></div>
+          <div class="info-card"><div class="icon">🧊</div><h4>보관 안내</h4><p>손질 후 안전하게 가져가실 수 있도록 안내합니다.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-panel" id="panel-dry">
+      <div class="selected-card">
+        <div class="round-photo">☀️</div><h3>반건조 수산물</h3>
+        <p>반건조 수산물 상품을 준비합니다.</p>
+      </div>
+      <div class="panel-content">
+        <h3>☀️ 반건조 수산물</h3>
+        <div class="detail-grid">
+          <div class="info-card"><div class="icon">🐙</div><h4>반건조 오징어</h4><p>상품 준비 후 판매 내용을 안내합니다.</p><b>가격 준비중</b></div>
+          <div class="info-card"><div class="icon">🐟</div><h4>반건조 조기</h4><p>상품 준비 후 판매 내용을 안내합니다.</p><b>가격 준비중</b></div>
+          <div class="info-card"><div class="icon">🐟</div><h4>반건조 고등어</h4><p>상품 준비 후 판매 내용을 안내합니다.</p><b>가격 준비중</b></div>
+          <div class="info-card"><div class="icon">🛒</div><h4>온라인 판매</h4><p>상품과 가격은 준비 후 안내해드립니다.</p><b>010-2671-4516</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-panel" id="panel-abalone">
+      <div class="selected-card">
+        <div class="round-photo">🦪</div><h3>전복 유통</h3>
+        <p>전복 유통 사업을 별도로 운영합니다.</p>
+      </div>
+      <div class="panel-content abalone-content">
+        <h3>🦪 녹동전복</h3>
+        <p>청정 고흥 바다에서 자란 신선하고 영양가득한 전복을 산지 중심으로 신선하게 공급·유통하는 사업입니다.</p>
+      </div>
+    </div>
+
+    <div class="detail-panel" id="panel-price">
+      <div class="selected-card">
+        <div class="round-photo">👍</div><h3>합리적인 가격</h3>
+        <p>손질 종류와 양에 따라 안내해드립니다.</p>
+      </div>
+      <div class="panel-content abalone-content">
+        <h3>👍 합리적인 가격</h3>
+        <p>손질할 생선의 종류와 크기, 손질 방법에 따라 가격을 안내해드립니다.</p>
+        <p><b>전화문의 010-2671-4516</b></p>
+      </div>
+    </div>
+
+    <div class="detail-panel" id="panel-quick">
+      <div class="selected-card">
+        <div class="round-photo">⏱️</div><h3>빠른 서비스</h3>
+        <p>낚시 후 바로 맡기실 수 있습니다.</p>
+      </div>
+      <div class="panel-content abalone-content">
+        <h3>⏱️ 빠른 서비스</h3>
+        <p>낚시 후 바로 방문하시면 접수 후 손질해드립니다.</p>
+        <p>운영시간은 사업장 준비 후 최종 안내할 예정입니다.</p>
       </div>
     </div>
   </div>
+</section>
+<section id="products" class="products"><div class="wrap"><h2>반건조 · 전복 유통</h2><div class="sub">상품 준비 및 유통 내용을 순차적으로 안내합니다.</div></div></section>
 
-  <!-- 이미지 팝업 모달 창 -->
-  <div id="imageModal" class="modal-overlay" onclick="closeModalOutside(event)">
-    <div class="modal-content">
-      <div class="modal-header">
-        <span id="modalTitle" class="modal-title">상세 보기</span>
-        <button class="close-btn" onclick="closeModal()">&times;</button>
-      </div>
-      <div class="modal-body">
-        <img id="modalImg" src="" alt="상세 이미지">
-      </div>
-    </div>
-  </div>
+<section id="how"><div class="wrap"><h2>이용방법</h2><div class="sub">낚시 후 간단하게 이용하실 수 있습니다.</div>
+ <div class="steps">
+  <div class="step"><b>01 방문</b><p>낚시 후 방문</p></div>
+  <div class="step"><b>02 접수</b><p>손질 방법 접수</p></div>
+  <div class="step"><b>03 손질</b><p>깔끔하게 손질</p></div>
+  <div class="step"><b>04 수령</b><p>손질 완료 후 수령</p></div>
+ </div></div></section>
 
-  <script>
-    // 클릭 시 연결되는 데이터 (제목 및 사진 URL)
-    const modalData = {
-      fish: {
-        title: '생선 손질 사진',
-        imgUrl: 'https://images.unsplash.com/photo-1534483509719-3feaee7c30da?q=80&w=800'
-      },
-      dried: {
-        title: '반건조 수산물 사진',
-        imgUrl: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?q=80&w=800'
-      },
-      abalone: {
-        title: '전복 유통 사진',
-        imgUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=800'
-      }
-    };
-
-    // 모달 열기 함수
-    function openModal(type) {
-      const data = modalData[type];
-      if (data) {
-        document.getElementById('modalTitle').innerText = data.title;
-        document.getElementById('modalImg').src = data.imgUrl;
-        document.getElementById('imageModal').style.display = 'flex';
-      }
-    }
-
-    // 모달 닫기 함수
-    function closeModal() {
-      document.getElementById('imageModal').style.display = 'none';
-    }
-
-    // 배경 클릭 시 닫기
-    function closeModalOutside(event) {
-      if (event.target.classList.contains('modal-overlay')) {
-        closeModal();
-      }
-    }
-  </script>
-
-</body>
-</html>
+<section id="location" class="contact"><div class="wrap contact-grid">
+ <div><h2>고흥 녹동항 수산물센터</h2><p>낚시 후 잡은 생선을 깔끔하게 손질해드립니다.</p><h3>전화문의 010-2671-4516</h3></div>
+ <div><h3>주소</h3><p>전남 고흥군 녹동항 일대</p><p>※ 정확한 주소는 사업장 확정 후 입력</p></div>
+ <div><h3>고객센터</h3><p>전화: <a href="tel:01026714516">010-2671-4516</a></p><p>운영시간: 07:00~20:00 (예정)</p></div>
+ </div></section>
+<footer>© 고흥 녹동항 수산물센터. All rights reserved.</footer>
+<script>
+function showPanel(name){
+  document.querySelectorAll('.detail-panel').forEach(p=>p.classList.remove('active'));
+  const panel=document.getElementById('panel-'+name);
+  if(panel) panel.classList.add('active');
+  const service=document.getElementById('service');
+  if(service) service.scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+</body></html>
