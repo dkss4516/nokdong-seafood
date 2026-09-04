@@ -9,14 +9,14 @@
         body { background-color: #f8f9fa; color: #333; line-height: 1.6; }
         
         /* 헤더 스타일 */
-        header { background: #004b8d; color: white; text-align: center; padding: 40px 20px; position: relative; }
+        header { background: #004b8d; color: white; text-align: center; padding: 40px 20px; }
         header h1 { font-size: 2.2rem; margin-bottom: 10px; }
         header p { font-size: 1.1rem; opacity: 0.9; }
         .tel-btn { display: inline-block; margin-top: 15px; padding: 8px 18px; background-color: white; color: #004b8d; font-weight: bold; border-radius: 20px; text-decoration: none; }
 
         .container { max-width: 1000px; margin: 0 auto; padding: 30px 20px; }
         
-        /* 상단 버튼 메뉴 스타일 */
+        /* 상단 버튼 메뉴 */
         .service-nav { display: flex; gap: 10px; justify-content: center; margin-bottom: 30px; flex-wrap: wrap; }
         .service-btn {
             background-color: white; border: 2px solid #004b8d; color: #004b8d;
@@ -27,16 +27,18 @@
             background-color: #004b8d; color: white;
         }
 
-        /* 서비스 카드 영역 */
+        /* 서비스 카드 및 이미지 영역 */
         .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .card { background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; }
+        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
+        .card-img { width: 100%; height: 200px; object-fit: cover; background-color: #e9ecef; }
+        .card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
         .card h3 { color: #004b8d; margin-bottom: 12px; font-size: 1.3rem; border-bottom: 2px solid #e9ecef; padding-bottom: 8px; }
         .card p { color: #555; font-size: 0.95rem; margin-bottom: 15px; }
 
-        /* 클릭 시 보이기/숨기기용 스타일 */
+        /* 클릭 시 보이기/숨기기 */
         .card.hide { display: none; }
 
-        /* 전복 규격 및 가격 표기 */
+        /* 전복 규격 표기 */
         .abalone-spec { background: #f1f5f9; padding: 12px 15px; border-radius: 8px; margin-top: 10px; }
         .abalone-spec ul { list-style: none; padding: 0; }
         .abalone-spec li { font-size: 0.9rem; color: #444; padding: 3px 0; display: flex; justify-content: space-between; }
@@ -50,7 +52,7 @@
     <header>
         <h1>고흥녹동항 수산물센터</h1>
         <p>낚시객 손질 서비스부터 신선한 반건조·녹동전복 전국 유통까지!</p>
-        <a href="tel:010-2671-4516" class="tel-btn">📞 010-2671-4516</a>
+        <a href="tel:010-2671-4516" class="tel-btn">📞 전화문의: 010-2671-4516</a>
     </header>
 
     <div class="container">
@@ -62,34 +64,46 @@
             <button class="service-btn" onclick="filterService('abalone', this)">녹동전복</button>
         </div>
 
-        <!-- 주요 서비스 카드 (클릭 시 작동) -->
+        <!-- 카드 영역 (사진 포함) -->
         <div class="service-grid">
+            <!-- 1. 수산물 손질 서비스 -->
             <div class="card" data-category="cut">
-                <div>
-                    <h3>🔪 수산물 손질서비스</h3>
-                    <p>녹동항 낚시객분들을 위한 맞춤 손질 서비스! 갓 잡은 생선을 깔끔하게 손질 및 급속냉동·진공포장하여 집까지 신선하게 가져가실 수 있도록 준비해 드립니다.</p>
+                <img src="https://images.unsplash.com/photo-1534483509719-3feaee7c30da?auto=format&fit=crop&w=600&q=80" alt="수산물 손질" class="card-img">
+                <div class="card-content">
+                    <div>
+                        <h3>🔪 수산물 손질서비스</h3>
+                        <p>녹동항 낚시객분들을 위한 맞춤 손질 서비스! 갓 잡은 생선을 깔끔하게 회·포뜨기, 내장 제거 후 급속냉동 및 진공포장하여 신선하게 보관해 드립니다.</p>
+                    </div>
                 </div>
             </div>
 
+            <!-- 2. 반건조수산물 (오징어 및 생선) -->
             <div class="card" data-category="dry">
-                <div>
-                    <h3>🐟 반건조수산물</h3>
-                    <p>고흥 해풍으로 정성껏 말린 최고급 반건조 생선입니다. 위생적인 관리와 급속냉동 포장으로 겉은 바삭하고 속은 촉촉한 맛을 그대로 전해드립니다.</p>
+                <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=600&q=80" alt="반건조 생선 및 오징어" class="card-img">
+                <div class="card-content">
+                    <div>
+                        <h3>🐟 반건조수산물</h3>
+                        <p>고흥 청정 해풍으로 건조한 최고급 반건조 오징어 및 각종 생선입니다. 위생적인 급속냉동 진공포장으로 겉은 바삭하고 속은 촉촉한 풍미를 자랑합니다.</p>
+                    </div>
                 </div>
             </div>
 
+            <!-- 3. 녹동전복 -->
             <div class="card" data-category="abalone">
-                <div>
-                    <h3>🦪 녹동전복 (산지직송 유통)</h3>
-                    <p>청정 고흥 바다에서 직접 유통하는 싱싱한 녹동 명품 활전복입니다. 선물용 최고급 왕전복부터 횟감·구이용, 가정·꼬마전복까지 전국 산지직송 포장 배송해 드립니다.</p>
-                    
-                    <div class="abalone-spec">
-                        <ul>
-                            <li><span>• 5~6미 (대형 선물용)</span> <span class="price-tag">가격 준비 중</span></li>
-                            <li><span>• 7~8미 (구이/횟감용)</span> <span class="price-tag">가격 준비 중</span></li>
-                            <li><span>• 9~10미 (가정용)</span> <span class="price-tag">가격 준비 중</span></li>
-                            <li><span>• 1kg 30~40개 (꼬마/버터구이)</span> <span class="price-tag">가격 준비 중</span></li>
-                        </ul>
+                <img src="https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?auto=format&fit=crop&w=600&q=80" alt="녹동전복" class="card-img">
+                <div class="card-content">
+                    <div>
+                        <h3>🦪 녹동전복 (산지직송 유통)</h3>
+                        <p>청정 고흥 바다에서 직접 유통하는 싱싱한 녹동 명품 활전복입니다. 선물용 최고급 왕전복부터 가정용·꼬마전복까지 신선하게 산지직송 배송합니다.</p>
+                        
+                        <div class="abalone-spec">
+                            <ul>
+                                <li><span>• 5~6미 (대형 선물용)</span> <span class="price-tag">가격 준비 중</span></li>
+                                <li><span>• 7~8미 (구이/횟감용)</span> <span class="price-tag">가격 준비 중</span></li>
+                                <li><span>• 9~10미 (가정용)</span> <span class="price-tag">가격 준비 중</span></li>
+                                <li><span>• 1kg 30~40개 (꼬마전복)</span> <span class="price-tag">가격 준비 중</span></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -100,17 +114,14 @@
         <p><strong>고흥녹동항 수산물센터</strong> | 문의전화: 010-2671-4516 | 전남 고흥군 도양읍 녹동항 일원</p>
     </footer>
 
-    <!-- 버튼 클릭 시 해당 내용만 보여주는 자바스크립트 -->
+    <!-- 버튼 클릭 시 필터링 자바스크립트 -->
     <script>
         function filterService(category, btn) {
-            // 모든 버튼에서 active 클래스 제거 후 클릭한 버튼에만 부여
             const buttons = document.querySelectorAll('.service-btn');
             buttons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
-            // 모든 카드 가져오기
             const cards = document.querySelectorAll('.card');
-            
             cards.forEach(card => {
                 if (category === 'all') {
                     card.classList.remove('hide');
