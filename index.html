@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>고흥 녹동항   수산물센터</title>
+<title>고흥 녹동항 수산물센터</title>
 <style>
 .menu-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:900px;margin:0 auto}
 .menu-item{border:1px solid #d9e2ec;border-radius:22px;background:#fff;overflow:hidden;box-shadow:0 8px 24px rgba(0,40,80,.08)}
@@ -32,236 +32,63 @@ section{padding:62px 0}h2{font-size:31px;text-align:center;margin:0 0 9px}.sub{t
 footer{background:#031b35;color:#b9c8d8;text-align:center;padding:22px;font-size:13px}
 @media(max-width:800px){nav{display:none}.hero h1{font-size:36px}.features,.cards,.steps,.contact-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.features,.cards,.steps,.contact-grid{grid-template-columns:1fr}.hero{padding:50px 0}}
-
-button{font-family:inherit}
-.features button{appearance:none;cursor:pointer;color:#fff;background:#0755a5}
-.main-menu{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:0 auto 34px}
-.main-card{border:1px solid #d9e2ec;border-radius:16px;background:#fff;padding:22px 16px 20px;cursor:pointer;box-shadow:0 8px 24px rgba(0,40,80,.08);color:#10243e}
-.main-card:hover{transform:translateY(-2px)}
-.main-card h3{margin:8px 0 4px;font-size:19px}.main-card p{margin:0;color:#667;font-size:13px}
-.detail-panel{display:none;grid-template-columns:250px 1fr;gap:28px;align-items:start;background:#f5f9fd;padding:22px;border-radius:8px;max-width:1080px;margin:0 auto;min-height:210px}
-.detail-panel.active{display:grid}
-.selected-card{background:#fff;border:1px solid #dce5ee;border-radius:16px;padding:22px 15px;text-align:center;box-shadow:0 5px 18px rgba(0,40,80,.08)}
-.selected-card .round-photo{width:112px;height:112px;font-size:50px}
-.selected-card h3{margin:7px 0 4px}.selected-card p{font-size:13px;color:#667;margin:0;line-height:1.5}
-.panel-content{padding:8px 4px}.panel-content>h3{font-size:23px;margin:0 0 15px;border-bottom:1px solid #d9e2ec;padding-bottom:10px}
-.detail-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.info-card{background:#fff;border:1px solid #d9e2ec;border-radius:8px;padding:15px 10px;text-align:center;min-height:150px}
-.info-card .icon{font-size:31px}.info-card h4{margin:6px 0;font-size:14px}.info-card p{font-size:12px;color:#667;line-height:1.55;margin:0 0 7px}.info-card b{font-size:11px;color:#0755a5}
-.abalone-content{background:#fff;border-radius:12px;padding:22px;min-height:160px}.abalone-content p{line-height:1.8;color:#5f6c79}
-@media(max-width:850px){.main-menu{grid-template-columns:1fr 1fr}.detail-panel.active{grid-template-columns:190px 1fr}.detail-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.main-menu{grid-template-columns:1fr}.detail-panel.active{grid-template-columns:1fr}.detail-grid{grid-template-columns:1fr}.features{grid-template-columns:1fr 1fr}.features .feature{padding:15px 8px}}
-
-/* 스마트폰 전용 레이아웃 개선 */
-@media (max-width: 600px){
-  html{scroll-behavior:smooth;}
-  body{width:100%;overflow-x:hidden;font-size:14px;}
-  .wrap{width:100%;padding:0 14px;}
-
-  header{position:sticky;top:0;}
-  .nav{height:58px;padding:0 12px;gap:8px;}
-  .logo{font-size:15px;line-height:1.05;white-space:nowrap;}
-  .logo small{font-size:8px;margin-top:3px;white-space:nowrap;}
-  .call{font-size:11px;padding:9px 10px;border-radius:7px;white-space:nowrap;}
-
-  .hero{padding:34px 0 30px;}
-  .hero h1{font-size:28px;line-height:1.28;letter-spacing:-1.5px;margin-bottom:12px;}
-  .hero p{font-size:14px;line-height:1.55;margin:0;}
-  .buttons{gap:8px;margin-top:18px;}
-  .btn{font-size:12px;padding:11px 12px;white-space:nowrap;}
-
-  /* 상단 5개 메뉴는 가로로 넘기지 않고 2열로 */
-  .features{grid-template-columns:repeat(2,1fr);}
-  .feature{padding:13px 5px;font-size:12px;line-height:1.35;border-bottom:1px solid #4f82bd;}
-  .features .feature:nth-child(5){grid-column:1 / -1;}
-
-  section{padding:38px 0;}
-  h2{font-size:25px;letter-spacing:-1px;}
-  .sub{font-size:12px;line-height:1.5;margin-bottom:20px;}
-
-  .main-menu{grid-template-columns:1fr;gap:12px;margin-bottom:18px;}
-  .main-card{padding:17px 14px 15px;border-radius:14px;display:grid;grid-template-columns:82px 1fr;grid-template-rows:auto auto;column-gap:13px;align-items:center;text-align:left;}
-  .main-card .round-photo{grid-row:1 / 3;width:72px;height:72px;font-size:34px;margin:0;}
-  .main-card h3{font-size:18px;margin:0 0 3px;}
-  .main-card p{font-size:12px;line-height:1.45;}
-
-  .detail-panel.active{display:block;padding:14px;border-radius:10px;min-height:0;}
-  .selected-card{padding:14px 10px;margin-bottom:13px;display:flex;align-items:center;text-align:left;gap:12px;border-radius:12px;}
-  .selected-card .round-photo{width:72px;height:72px;min-width:72px;font-size:34px;margin:0;}
-  .selected-card h3{font-size:17px;margin:0 0 4px;}
-  .selected-card p{font-size:11px;line-height:1.45;}
-  .panel-content{padding:0;}
-  .panel-content>h3{font-size:20px;margin-bottom:10px;padding-bottom:8px;}
-  .detail-grid{grid-template-columns:1fr 1fr;gap:8px;}
-  .info-card{min-height:125px;padding:12px 8px;border-radius:8px;}
-  .info-card .icon{font-size:26px;}
-  .info-card h4{font-size:13px;margin:5px 0;}
-  .info-card p{font-size:11px;line-height:1.45;}
-  .info-card b{font-size:10px;}
-  .abalone-content{padding:15px;}
-  .abalone-content p{font-size:13px;line-height:1.7;}
-
-  .products{padding:30px 0;}
-  .products h2{font-size:22px;}
-  .steps{grid-template-columns:1fr 1fr;gap:9px;}
-  .step{padding:14px 8px;border-radius:9px;}
-  .step p{font-size:11px;margin:7px 0 0;}
-
-  .contact{padding:32px 0;}
-  .contact-grid{display:block;}
-  .contact h2{font-size:22px;text-align:left;margin-bottom:10px;}
-  .contact-grid>div{margin-bottom:22px;}
-  .contact-grid>div:last-child{margin-bottom:0;}
-  .contact h3{font-size:15px;margin:8px 0;}
-  .contact p{font-size:12px;line-height:1.6;margin:4px 0;}
-  footer{font-size:10px;padding:16px 10px;}
-}
-
-@media (max-width:360px){
-  .logo{font-size:13px;}
-  .logo small{font-size:7px;}
-  .call{font-size:10px;padding:8px;}
-  .hero h1{font-size:25px;}
-  .detail-grid{grid-template-columns:1fr;}
-}
-
-</style>
-
-<style>
-.call{line-height:1.35;text-align:center}
-.contact a{color:inherit}
-@media(max-width:600px){.call span{font-size:10px!important}}
 </style>
 </head>
 <body>
 <header><div class="wrap nav">
 <div class="logo">🐟 고흥 녹동항<br>수산물센터<small>낚시 후 잡은 생선, 깔끔하게 손질해드립니다.</small></div>
-<nav><a href="javascript:void(0)" onclick="goToSection('service')">수산물 손질서비스</a><a href="javascript:void(0)" onclick="goToSection('products')">반건조 수산물</a><a href="javascript:void(0)" onclick="goToSection('how')">이용방법</a><a href="javascript:void(0)" onclick="goToSection('location')">오시는 길</a></nav>
-<a class="call" href="tel:01026714516">☎ 010-2671-4516<br><span style="font-size:11px">010-2038-4654</span></a>
+<nav><a href="#service">수산물 손질서비스</a><a href="#products">반건조 수산물</a><a href="#how">이용방법</a><a href="#location">오시는 길</a></nav>
+<a class="call" href="tel:01026714516">☎ 010-2671-4516</a>
 </div></header>
 
 <section class="hero"><div class="wrap">
 <h1>녹동항에서 잡은 생선,<br><span>먹기 좋게 깔끔하게</span> 손질해드립니다.</h1>
 <p>낚시 후 바로 맡기시면 원하는 방식으로 깔끔하게 손질해드립니다.</p>
-<div class="buttons"><button class="btn primary" onclick="goToSection('service')">서비스 안내</button><a class="btn" href="tel:01026714516">전화문의 010-2671-4516 / 010-2038-4654</a></div>
+<div class="buttons"><a class="btn primary" href="#service">서비스 안내</a><a class="btn" href="tel:01026714516">전화문의 010-2671-4516</a></div>
 </div></section>
 
-
 <div class="features">
-  <button class="feature" onclick="showPanel('clean')">🐟<br>전문 손질</button>
-  <button class="feature" onclick="showPanel('fillet')">🔪<br>필렛 손질</button>
-  <button class="feature" onclick="showPanel('dry')">☀️<br>반건조 준비</button>
-  <button class="feature" onclick="showPanel('price')">👍<br>합리적인 가격</button>
-  <button class="feature" onclick="showPanel('quick')">⏱️<br>빠른 서비스</button>
+<div class="feature">🐟<br>전문 손질</div><div class="feature">🔪<br>필렛 손질</div><div class="feature">☀️<br>반건조 준비</div><div class="feature">👍<br>합리적인 가격</div><div class="feature">⏱️<br>빠른 서비스</div>
 </div>
 
-<section id="service">
-  <div class="wrap">
-    <h2>수산물 서비스</h2>
-    <div class="sub">원하시는 메뉴를 누르면 아래처럼 자세한 내용이 펼쳐집니다.</div>
-
-    <div class="main-menu">
-      <button class="main-card" onclick="showPanel('clean')">
-        <div class="round-photo">🐟</div>
-        <h3>생선 손질</h3>
-        <p>잡은 생선을 깔끔하게 손질해드립니다.</p>
-      </button>
-      <button class="main-card" onclick="showPanel('dry')">
-        <div class="round-photo">☀️</div>
-        <h3>반건조 수산물</h3>
-        <p>반건조 수산물 상품을 준비합니다.</p>
-      </button>
-      <button class="main-card" onclick="showPanel('abalone')">
-        <div class="round-photo">🦪</div>
-        <h3>전복 유통</h3>
-        <p>전복 유통 사업을 별도로 운영합니다.</p>
-      </button>
-    </div>
-
-    <div class="detail-panel" id="panel-clean">
-      <div class="selected-card">
-        <div class="round-photo">🐟</div><h3>생선 손질</h3>
-        <p>잡은 생선을 깔끔하게 손질해드립니다.</p>
-      </div>
-      <div class="panel-content">
-        <h3>🐟 생선 손질</h3>
-        <div class="detail-grid">
-          <div class="info-card"><div class="icon">🐟</div><h4>생선 손질</h4><p>비늘·내장 제거 등 원하시는 방식으로 깔끔하게 손질합니다.</p></div>
-          <div class="info-card"><div class="icon">🔪</div><h4>필렛(포 뜨기)</h4><p>회로 드실 수 있도록 먹기 편하게 포를 떠드립니다.</p></div>
-          <div class="info-card"><div class="icon">📦</div><h4>진공포장</h4><p>필요하신 경우 신선도 유지를 위한 포장도 안내해드립니다.</p></div>
-          <div class="info-card"><div class="icon">🧊</div><h4>보관 안내</h4><p>아이스팩 등으로 안전하게 보관할 수 있도록 안내합니다.</p></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="detail-panel" id="panel-fillet">
-      <div class="selected-card">
-        <div class="round-photo">🔪</div><h3>필렛 손질</h3>
-        <p>회로 드실 수 있도록 포를 떠드립니다.</p>
-      </div>
-      <div class="panel-content">
-        <h3>🔪 필렛 손질</h3>
-        <div class="detail-grid">
-          <div class="info-card"><div class="icon">🔪</div><h4>포 뜨기</h4><p>회나 구이 등 원하시는 용도에 맞춰 손질합니다.</p></div>
-          <div class="info-card"><div class="icon">🐟</div><h4>깔끔한 손질</h4><p>비늘과 내장을 정리한 뒤 먹기 편하게 손질합니다.</p></div>
-          <div class="info-card"><div class="icon">🧊</div><h4>보관 안내</h4><p>손질 후 안전하게 가져가실 수 있도록 안내합니다.</p></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="detail-panel" id="panel-dry">
-      <div class="selected-card">
-        <div class="round-photo">☀️</div><h3>반건조 수산물</h3>
-        <p>반건조 수산물 상품을 준비합니다.</p>
-      </div>
-      <div class="panel-content">
-        <h3>☀️ 반건조 수산물</h3>
-        <div class="detail-grid">
-          <div class="info-card"><div class="icon">🐙</div><h4>반건조 오징어</h4><p>상품 준비 후 판매 내용을 안내합니다.</p><b>가격 준비중</b></div>
-          <div class="info-card"><div class="icon">🐟</div><h4>반건조 조기</h4><p>상품 준비 후 판매 내용을 안내합니다.</p><b>가격 준비중</b></div>
-          <div class="info-card"><div class="icon">🐟</div><h4>반건조 고등어</h4><p>상품 준비 후 판매 내용을 안내합니다.</p><b>가격 준비중</b></div>
-          <div class="info-card"><div class="icon">🛒</div><h4>온라인 판매</h4><p>상품과 가격은 준비 후 안내해드립니다.</p><b>010-2671-4516</b></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="detail-panel" id="panel-abalone">
-      <div class="selected-card">
-        <div class="round-photo">🦪</div><h3>전복 유통</h3>
-        <p>전복 유통 사업을 별도로 운영합니다.</p>
-      </div>
-      <div class="panel-content abalone-content">
-        <h3>🦪 녹동전복</h3>
-        <p>청정 고흥 바다에서 자란 신선하고 영양가득한 전복을 산지 중심으로 신선하게 공급·유통하는 사업입니다.</p>
-      </div>
-    </div>
-
-    <div class="detail-panel" id="panel-price">
-      <div class="selected-card">
-        <div class="round-photo">👍</div><h3>합리적인 가격</h3>
-        <p>손질 종류와 양에 따라 안내해드립니다.</p>
-      </div>
-      <div class="panel-content abalone-content">
-        <h3>👍 합리적인 가격</h3>
-        <p>손질할 생선의 종류와 크기, 손질 방법에 따라 가격을 안내해드립니다.</p>
-        <p><b>전화문의 010-2671-4516 / 010-2038-4654</b></p>
-      </div>
-    </div>
-
-    <div class="detail-panel" id="panel-quick">
-      <div class="selected-card">
-        <div class="round-photo">⏱️</div><h3>빠른 서비스</h3>
-        <p>낚시 후 바로 맡기실 수 있습니다.</p>
-      </div>
-      <div class="panel-content abalone-content">
-        <h3>⏱️ 빠른 서비스</h3>
-        <p>낚시 후 바로 방문하시면 접수 후 손질해드립니다.</p>
-        <p>운영시간은 사업장 준비 후 최종 안내할 예정입니다.</p>
-      </div>
-    </div>
+<section id="service"><div class="wrap"><h2>서비스 안내</h2><div class="sub">동그란 메뉴를 눌러 자세한 내용을 확인하세요.</div>
+ <div class="menu-wrap">
+  <div class="menu-item">
+   <button class="menu-button" onclick="toggleDetail('cleanDetail')">
+    <div class="round-photo">🐟</div><h3>생선 손질</h3><p>잡은 생선을 깔끔하게 손질해드립니다.</p>
+   </button>
+   <div id="cleanDetail" class="detail">
+    <h4>🐟 생선 손질</h4>
+    <p>낚시 후 잡아오신 생선을 먹기 편하도록 깔끔하게 손질해드립니다.</p>
+    <ul><li>비늘 제거</li><li>내장 제거</li><li>원하시는 방식으로 손질</li><li>필요하면 포 뜨기(필렛)</li></ul>
+   </div>
   </div>
-</section>
-<section id="products" class="products"><div class="wrap"><h2>반건조 · 전복 유통</h2><div class="sub">상품 준비 및 유통 내용을 순차적으로 안내합니다.</div></div></section>
+
+  <div class="menu-item">
+   <button class="menu-button" onclick="toggleDetail('dryDetail')">
+    <div class="round-photo">☀️</div><h3>반건조 수산물</h3><p>반건조 수산물 상품을 준비합니다.</p>
+   </button>
+   <div id="dryDetail" class="detail">
+    <h4>☀️ 반건조 수산물</h4>
+    <p>녹동항 수산물을 활용한 반건조 상품을 준비하고 있습니다.</p>
+    <ul><li>반건조 오징어</li><li>반건조 조기</li><li>반건조 고등어</li><li>상품과 판매가격은 준비 후 안내</li></ul>
+   </div>
+  </div>
+
+  <div class="menu-item">
+   <button class="menu-button" onclick="toggleDetail('abaloneDetail')">
+    <div class="round-photo">🦪</div><h3>전복 유통</h3><p>전복 유통 사업을 별도로 운영합니다.</p>
+   </button>
+   <div id="abaloneDetail" class="detail">
+    <h4>🦪 전복 유통</h4>
+    <p>신선한 전복을 유통·판매하는 사업입니다.</p>
+    <ul><li>전복 유통</li><li>전복 상품 공급</li><li>판매 및 유통 문의</li><li>상세 상품은 준비 후 안내</li></ul>
+   </div>
+  </div>
+ </div>
+ </div></section>
+
+<section id="products" class="products"><div class="wrap"><h2>반건조 · 전복 유통</h2><div class="sub">앞으로 상품을 준비해 판매·유통할 예정입니다.</div></div></section>
 
 <section id="how"><div class="wrap"><h2>이용방법</h2><div class="sub">낚시 후 간단하게 이용하실 수 있습니다.</div>
  <div class="steps">
@@ -272,35 +99,144 @@ button{font-family:inherit}
  </div></div></section>
 
 <section id="location" class="contact"><div class="wrap contact-grid">
- <div><h2>고흥 녹동항 수산물센터</h2><p>낚시 후 잡은 생선을 깔끔하게 손질해드립니다.</p><h3>전화문의 010-2671-4516 / 010-2038-4654</h3></div>
- <div><h3>주소</h3><p>전남광주특별시 고흥군 도양읍 비봉로 189</p><p>고흥 녹동항 수산물센터</p></div>
- <div><h3>고객센터</h3><p>전화: <a href="tel:01026714516">010-2671-4516</a></p><p>추가문의: <a href="tel:01020384654">010-2038-4654</a></p><p>운영시간: 05:00~20:00 (예정)</p></div>
+ <div><h2>고흥 녹동항 수산물센터</h2><p>낚시 후 잡은 생선을 깔끔하게 손질해드립니다.</p><h3>전화문의 010-2671-4516</h3></div>
+ <div><h3>주소</h3><p>전남 고흥군 녹동항 일대</p><p>※ 정확한 주소는 사업장 확정 후 입력</p></div>
+ <div><h3>고객센터</h3><p>전화: <a href="tel:01026714516">010-2671-4516</a></p><p>운영시간: 07:00~20:00 (예정)</p></div>
  </div></section>
 <footer>© 고흥 녹동항 수산물센터. All rights reserved.</footer>
 <script>
-function showPanel(name){
-  document.querySelectorAll('.detail-panel').forEach(p=>p.classList.remove('active'));
-  const panel=document.getElementById('panel-'+name);
-  if(panel) panel.classList.add('active');
-  const service=document.getElementById('service');
-  if(service) service.scrollIntoView({behavior:'smooth',block:'start'});
+function toggleDetail(id){
+  const box=document.getElementById(id);
+  box.classList.toggle('open');
 }
 </script>
 
+<section id="member-board" style="padding:60px 20px;background:#f5f9fc;">
+<div style="max-width:1100px;margin:auto;">
+<h2 style="text-align:center;color:#0b5fa5;">회원가입 · 게시판</h2>
+<p style="text-align:center;color:#666;">회원가입과 고객 게시판을 이용하세요.</p>
+<div class="member-grid">
+<div class="member-box"><h3>👤 회원가입</h3>
+<form onsubmit="demoSignup(event)">
+<input required id="signupName" placeholder="이름">
+<input required id="signupPhone" placeholder="전화번호">
+<input required id="signupId" placeholder="아이디">
+<input required id="signupPw" type="password" placeholder="비밀번호">
+<button>회원가입</button></form><p id="signupMsg"></p></div>
+<div class="member-box"><h3>📋 고객 게시판</h3>
+<form onsubmit="demoPost(event)">
+<input required id="postTitle" placeholder="제목">
+<textarea required id="postBody" rows="6" placeholder="내용을 입력하세요"></textarea>
+<button>게시글 등록</button></form><div id="boardList"></div></div>
+</div></div></section>
+<style>
+.member-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.member-box{background:#fff;border-radius:18px;padding:28px;box-shadow:0 6px 20px #00000012}
+.member-box input,.member-box textarea{width:100%;box-sizing:border-box;padding:13px;margin:7px 0;border:1px solid #ddd;border-radius:10px}
+.member-box button{width:100%;padding:14px;margin-top:8px;border:0;border-radius:10px;background:#0b70b7;color:#fff;font-weight:bold}
+@media(max-width:700px){.member-grid{grid-template-columns:1fr}}
+</style>
+
 <script>
-// 카톡 등으로 기본 주소를 공유했을 때 현재 스크롤 위치/해시 때문에
-// 서비스 안내 화면에서 시작하지 않고 항상 홈페이지 맨 위에서 시작하게 합니다.
-history.scrollRestoration = 'manual';
-function goToSection(id){
-  const el=document.getElementById(id);
-  if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+function demoSignup(e){
+ e.preventDefault();
+ localStorage.setItem("gn_user",JSON.stringify({
+  name:signupName.value,phone:signupPhone.value,id:signupId.value
+ }));
+ signupMsg.textContent="회원가입 정보가 이 기기에 저장되었습니다.";
+ e.target.reset();
 }
-window.addEventListener('load', function(){
-  if(location.hash){ history.replaceState(null, '', location.pathname + location.search); }
-  setTimeout(function(){ window.scrollTo(0,0); }, 0);
-});
-window.addEventListener('pageshow', function(){
-  setTimeout(function(){ window.scrollTo(0,0); }, 0);
+function demoPost(e){
+ e.preventDefault();
+ const a=JSON.parse(localStorage.getItem("gn_posts")||"[]");
+ a.unshift({title:postTitle.value,body:postBody.value,date:new Date().toLocaleString("ko-KR")});
+ localStorage.setItem("gn_posts",JSON.stringify(a)); e.target.reset(); renderPosts();
+}
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));}
+function renderPosts(){
+ const a=JSON.parse(localStorage.getItem("gn_posts")||"[]");
+ boardList.innerHTML=a.length?a.map(x=>`<div style="border-top:1px solid #eee;padding:12px 0"><b>${esc(x.title)}</b><small style="display:block;color:#999">${esc(x.date)}</small><div>${esc(x.body)}</div></div>`).join(""):"<p style='color:#999'>등록된 게시글이 없습니다.</p>";
+}
+document.addEventListener("DOMContentLoaded",renderPosts);
+</script>
+
+<section id="admin-area" style="padding:60px 20px;background:#eef5fa;">
+<div style="max-width:1100px;margin:auto;">
+<h2 style="text-align:center;color:#075b96;">🔐 관리자 페이지</h2>
+<p style="text-align:center;color:#666;">관리자만 사용할 수 있는 관리 화면입니다.</p>
+<div class="admin-grid">
+<div class="admin-card"><h3>📢 공지사항 관리</h3>
+<input id="adminNotice" placeholder="공지사항 내용을 입력하세요">
+<button onclick="saveNotice()">공지사항 저장</button>
+<p id="noticeSaved"></p></div>
+<div class="admin-card"><h3>📝 게시글 관리</h3>
+<p>현재 저장된 게시글을 확인하고 삭제할 수 있습니다.</p>
+<div id="adminPosts"></div></div>
+<div class="admin-card"><h3>👥 회원 관리</h3>
+<p>현재 이 브라우저에 저장된 시험용 회원정보입니다.</p>
+<div id="adminUser"></div></div>
+</div></div></section>
+<style>
+.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.admin-card{background:#fff;border-radius:18px;padding:25px;box-shadow:0 6px 20px #0001}
+.admin-card input{width:100%;box-sizing:border-box;padding:12px;border:1px solid #ddd;border-radius:10px;margin:8px 0}
+.admin-card button{padding:11px 16px;border:0;border-radius:9px;background:#075b96;color:white;font-weight:bold}
+.admin-post{border-top:1px solid #eee;padding:12px 0}
+.admin-post button{background:#b42318;margin-top:7px}
+@media(max-width:700px){.admin-grid{grid-template-columns:1fr}}
+</style>
+
+
+<script>
+/* 관리자 화면 - 현재는 데모용입니다.
+   실제 운영에서는 Supabase Auth + RLS로 관리자 권한을 서버에서 검증해야 합니다. */
+const ADMIN_ID = "admin";
+const ADMIN_PASSWORD = "change-this-password";
+
+function adminLogin(){
+  const id=prompt("관리자 아이디");
+  const pw=prompt("관리자 비밀번호");
+  if(id===ADMIN_ID && pw===ADMIN_PASSWORD){
+    document.getElementById("admin-area").style.display="block";
+    renderAdmin();
+  }else{
+    alert("관리자 인증에 실패했습니다.");
+  }
+}
+function saveNotice(){
+  localStorage.setItem("gn_notice",document.getElementById("adminNotice").value);
+  document.getElementById("noticeSaved").textContent="공지사항이 저장되었습니다.";
+}
+function renderAdmin(){
+  const posts=JSON.parse(localStorage.getItem("gn_posts")||"[]");
+  const box=document.getElementById("adminPosts");
+  box.innerHTML=posts.length?posts.map((p,i)=>`
+    <div class="admin-post"><b>${escAdmin(p.title)}</b>
+    <div>${escAdmin(p.body)}</div>
+    <button onclick="deleteAdminPost(${i})">삭제</button></div>`).join("")
+    : "<p style='color:#999'>게시글이 없습니다.</p>";
+  const u=JSON.parse(localStorage.getItem("gn_user")||"null");
+  document.getElementById("adminUser").innerHTML=u?
+    `<p>이름: ${escAdmin(u.name)}</p><p>전화번호: ${escAdmin(u.phone)}</p><p>아이디: ${escAdmin(u.id)}</p>`:
+    "<p style='color:#999'>등록된 시험용 회원이 없습니다.</p>";
+}
+function deleteAdminPost(i){
+  const posts=JSON.parse(localStorage.getItem("gn_posts")||"[]");
+  posts.splice(i,1);
+  localStorage.setItem("gn_posts",JSON.stringify(posts));
+  renderAdmin();
+  if(typeof renderPosts==="function") renderPosts();
+}
+function escAdmin(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));}
+document.addEventListener("DOMContentLoaded",()=>{
+  const a=document.getElementById("admin-area");
+  if(a)a.style.display="none";
 });
 </script>
+
+
+<div style="text-align:center;margin:25px 0;">
+<button onclick="adminLogin()" style="padding:10px 18px;border:1px solid #075b96;border-radius:9px;background:white;color:#075b96;font-weight:bold;">관리자 로그인</button>
+</div>
+
 </body></html>
