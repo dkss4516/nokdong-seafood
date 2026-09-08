@@ -253,12 +253,12 @@ document.addEventListener("DOMContentLoaded",renderPosts);
 /* 관리자 화면 - 현재는 데모용입니다.
    실제 운영에서는 Supabase Auth + RLS로 관리자 권한을 서버에서 검증해야 합니다. */
 const ADMIN_ID = "dkss";
-const ADMIN_PASSWORD = "4516-this-password";
+const ADMIN_PASSWORD = "4516";
 
 function adminLogin(){
   const id=prompt("관리자 아이디");
   const pw=prompt("관리자 비밀번호");
-  if(id===ADMIN_ID && pw===4516_PASSWORD){
+  if(id===ADMIN_ID && pw===ADMIN_PASSWORD){
     document.getElementById("admin-area").style.display="block";
     renderAdmin();
   }else{
