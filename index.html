@@ -74,12 +74,25 @@ footer{background:#031b35;color:#b9c8d8;text-align:center;padding:22px;font-size
 }
 
 </style>
+<style>
+.top-actions{display:flex;align-items:center;gap:9px;margin-left:auto}.quick-banner{display:flex;align-items:center;gap:5px;padding:5px;background:#eef6ff;border:1px solid #b9d5ef;border-radius:10px;box-shadow:0 3px 10px rgba(0,50,100,.08)}.quick-banner a{display:inline-flex;align-items:center;justify-content:center;padding:9px 10px;border-radius:7px;background:#fff;color:#0755a5;font-size:12px;font-weight:800;white-space:nowrap;cursor:pointer}.quick-banner a:hover{background:#0755a5;color:#fff}
+@media(max-width:900px){.top-actions{gap:6px}.quick-banner{gap:3px;padding:3px}.quick-banner a{padding:7px 7px;font-size:11px}.top-actions .call{padding:9px 8px;font-size:10px}}
+@media(max-width:700px){header .nav{height:auto;min-height:76px;padding-top:9px;padding-bottom:8px;flex-wrap:wrap}.top-actions{width:100%;order:2;justify-content:center;margin-left:0}.quick-banner{flex:1;justify-content:center}.quick-banner a{flex:1;padding:9px 5px;font-size:12px}.top-actions .call{flex:0 0 auto;font-size:10px;padding:9px 7px}}
+@media(max-width:430px){.top-actions .call{max-width:125px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.quick-banner a{font-size:11px;padding:9px 3px}}
+</style>
 </head>
 <body>
 <header><div class="wrap nav">
 <div class="logo">🐟 고흥 녹동항<br>수산물센터<small>낚시 후 잡은 생선, 깔끔하게 손질해드립니다.</small></div>
-<nav><a href="#service">수산물서비스</a><a href="#products">반건조 수산물</a><a href="#how">이용방법</a><a href="#location">오시는 길</a><a href="#member-board">회원가입·게시판</a><a href="javascript:void(0)" onclick="adminLogin()">관리자</a></nav>
-<a class="call" href="tel:01026714516">☎ 010-2671-4516<br>☎ 010-2038-4654</a>
+<nav><a href="#service">수산물서비스</a><a href="#products">반건조 수산물</a><a href="#how">이용방법</a><a href="#location">오시는 길</a></nav>
+<div class="top-actions">
+  <div class="quick-banner">
+    <a href="#member-board">👤 회원가입</a>
+    <a href="#member-board">📋 게시판</a>
+    <a href="javascript:void(0)" onclick="adminLogin()">🔐 관리자</a>
+  </div>
+  <a class="call" href="tel:01026714516">☎ 010-2671-4516 / 010-2038-4654</a>
+</div>
 </div></header>
 
 <section class="hero"><div class="wrap">
