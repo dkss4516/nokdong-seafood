@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="ko">
 <head>
@@ -87,6 +86,7 @@ footer{background:#031b35;color:#b9c8d8;text-align:center;padding:22px;font-size
 <nav><a href="#service">수산물서비스</a><a href="#products">반건조 수산물</a><a href="#how">이용방법</a><a href="#location">오시는 길</a></nav>
 <div class="top-actions">
   <div class="quick-banner">
+    <a href="#reservation">🐟 손질예약</a>
     <a href="#signup">👤 회원가입</a>
     <a href="#shop">🛒 쇼핑몰</a>
     <a href="#board">📋 게시판</a>
@@ -159,6 +159,91 @@ footer{background:#031b35;color:#b9c8d8;text-align:center;padding:22px;font-size
  <div><h3>주소</h3><p>전남 고흥군 도양읍 비봉로 189</p><p></p></div>
  <div><h3>고객센터</h3><p>전화: <a href="tel:01026714516">010-2671-4516</a><br>추가: <a href="tel:01020384654">010-2038-4654</a></p><p>운영시간: 05:00~20:00 (예정)</p></div>
  </div></section>
+
+<section id="reservation" class="reservation-section">
+<div class="wrap">
+<h2>🐟 생선손질 예약</h2>
+<div class="sub">방문 전에 예약하시면 손질 준비를 미리 해드립니다.</div>
+<div class="reservation-grid">
+  <div class="reservation-form-box">
+    <form onsubmit="submitReservation(event)">
+      <label>예약 날짜</label>
+      <input id="resDate" type="date" required>
+      <label>방문 예정 시간</label>
+      <input id="resTime" type="time" min="05:00" max="20:00" required>
+      <label>예약자 이름</label>
+      <input id="resName" placeholder="이름" required>
+      <label>휴대폰번호</label>
+      <input id="resPhone" type="tel" placeholder="010-0000-0000" required>
+      <label>잡은 생선 종류</label>
+      <input id="resFish" placeholder="예: 우럭, 참돔, 감성돔">
+      <label>예상 수량 / 무게</label>
+      <input id="resWeight" placeholder="예: 5마리 / 약 10kg">
+      <label>원하는 손질 방법</label>
+      <div class="res-checks">
+        <label><input type="checkbox" value="비늘·내장 제거"> 비늘·내장 제거</label>
+        <label><input type="checkbox" value="필렛(포 뜨기)"> 필렛(포 뜨기)</label>
+        <label><input type="checkbox" value="기타 손질"> 기타 손질</label>
+      </div>
+      <label>요청사항</label>
+      <textarea id="resMemo" rows="4" placeholder="손질에 필요한 내용을 적어주세요."></textarea>
+      <button type="submit">예약 신청하기</button>
+      <p id="resMsg" class="res-msg"></p>
+    </form>
+  </div>
+  <div class="reservation-info">
+    <h3>예약 이용방법</h3>
+    <div class="res-step"><b>01</b><span>예약 날짜와 시간을 선택합니다.</span></div>
+    <div class="res-step"><b>02</b><span>생선 종류와 예상 무게를 입력합니다.</span></div>
+    <div class="res-step"><b>03</b><span>원하는 손질 방법을 선택합니다.</span></div>
+    <div class="res-step"><b>04</b><span>예약 신청 후 관리자 확인을 기다립니다.</span></div>
+    <div class="res-notice">※ 예약은 현재 이 기기에 저장되는 시험용 방식입니다. 실제 운영에서는 서버 DB 연결이 필요합니다.</div>
+  </div>
+</div>
+</div>
+</section>
+
+<style>
+.reservation-section{background:#f4f8fc}
+.reservation-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;max-width:1000px;margin:auto}
+.reservation-form-box,.reservation-info{background:#fff;border-radius:18px;padding:28px;box-shadow:0 6px 20px #00000012}
+.reservation-form-box form{display:grid;gap:7px}
+.reservation-form-box label{font-weight:700;margin-top:7px}
+.reservation-form-box input,.reservation-form-box textarea{width:100%;box-sizing:border-box;padding:13px;border:1px solid #d9e2ec;border-radius:10px;font:inherit}
+.res-checks{display:grid;grid-template-columns:1fr;gap:7px;padding:8px 0}
+.res-checks label{font-weight:400;margin:0}
+.res-checks input{width:auto}
+.reservation-form-box button{padding:14px;border:0;border-radius:10px;background:#0755a5;color:#fff;font-weight:800;font-size:16px;cursor:pointer;margin-top:8px}
+.res-msg{font-weight:700;text-align:center;margin:6px 0 0}
+.res-step{display:flex;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid #edf1f5}
+.res-step b{min-width:38px;height:38px;border-radius:50%;background:#e9f4ff;color:#0755a5;display:flex;align-items:center;justify-content:center}
+.res-notice{margin-top:20px;padding:14px;background:#f8fbfe;border-radius:10px;color:#667;line-height:1.6;font-size:13px}
+@media(max-width:700px){.reservation-grid{grid-template-columns:1fr}.reservation-form-box,.reservation-info{padding:20px}}
+</style>
+
+<script>
+function submitReservation(e){
+  e.preventDefault();
+  const checks=[...document.querySelectorAll('.res-checks input:checked')].map(x=>x.value);
+  const data={
+    date:document.getElementById('resDate').value,
+    time:document.getElementById('resTime').value,
+    name:document.getElementById('resName').value,
+    phone:document.getElementById('resPhone').value,
+    fish:document.getElementById('resFish').value,
+    weight:document.getElementById('resWeight').value,
+    methods:checks,
+    memo:document.getElementById('resMemo').value,
+    createdAt:new Date().toLocaleString('ko-KR')
+  };
+  const arr=JSON.parse(localStorage.getItem('gn_reservations')||'[]');
+  arr.unshift(data);
+  localStorage.setItem('gn_reservations',JSON.stringify(arr));
+  document.getElementById('resMsg').textContent='예약 신청이 접수되었습니다.';
+  e.target.reset();
+}
+</script>
+
 <footer>© 고흥 녹동항 수산물센터. All rights reserved.</footer>
 <script>
 function toggleDetail(id){
@@ -299,6 +384,10 @@ document.addEventListener("DOMContentLoaded",renderPosts);
 <h2 style="text-align:center;color:#075b96;">🔐 관리자 페이지</h2>
 <p style="text-align:center;color:#666;">관리자만 사용할 수 있는 관리 화면입니다.</p>
 <div class="admin-grid">
+<div class="admin-card"><h3>🐟 생선손질 예약 관리</h3>
+<p>접수된 예약을 확인할 수 있습니다.</p>
+<div id="adminReservations"></div></div>
+
 <div class="admin-card"><h3>📢 공지사항 관리</h3>
 <input id="adminNotice" placeholder="공지사항 내용을 입력하세요">
 <button onclick="saveNotice()">공지사항 저장</button>
@@ -322,6 +411,28 @@ document.addEventListener("DOMContentLoaded",renderPosts);
 
 
 <script>
+
+function renderAdminReservations(){
+  const arr=JSON.parse(localStorage.getItem('gn_reservations')||'[]');
+  const box=document.getElementById('adminReservations');
+  if(!box)return;
+  box.innerHTML=arr.length ? arr.map((r,i)=>`
+    <div class="admin-post">
+      <b>${escAdmin(r.date)} ${escAdmin(r.time)} / ${escAdmin(r.name)}</b>
+      <div>전화: ${escAdmin(r.phone)}</div>
+      <div>생선: ${escAdmin(r.fish||'-')} / ${escAdmin(r.weight||'-')}</div>
+      <div>손질: ${escAdmin((r.methods||[]).join(', ')||'-')}</div>
+      <div>요청: ${escAdmin(r.memo||'-')}</div>
+      <button onclick="deleteReservation(${i})">삭제</button>
+    </div>`).join('') : '<p style="color:#999">접수된 예약이 없습니다.</p>';
+}
+function deleteReservation(i){
+  const arr=JSON.parse(localStorage.getItem('gn_reservations')||'[]');
+  arr.splice(i,1);
+  localStorage.setItem('gn_reservations',JSON.stringify(arr));
+  renderAdminReservations();
+}
+
 /* 관리자 화면 - 현재는 데모용입니다.
    실제 운영에서는 Supabase Auth + RLS로 관리자 권한을 서버에서 검증해야 합니다. */
 const ADMIN_ID = "dkss";
@@ -333,6 +444,7 @@ function adminLogin(){
   if(id===ADMIN_ID && pw===ADMIN_PASSWORD){
     document.getElementById("admin-area").style.display="block";
     renderAdmin();
+    renderAdminReservations();
   }else{
     alert("관리자 인증에 실패했습니다.");
   }
