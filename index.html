@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>(유)시온zion 낚시 생선회손질</title>
+<title>고흥 녹동항 수산물센터</title>
 <style>
 .menu-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:900px;margin:0 auto}
 .menu-item{border:1px solid #d9e2ec;border-radius:22px;background:#fff;overflow:hidden;box-shadow:0 8px 24px rgba(0,40,80,.08)}
@@ -88,6 +88,7 @@ footer{background:#031b35;color:#b9c8d8;text-align:center;padding:22px;font-size
 <div class="top-actions">
   <div class="quick-banner">
     <a href="#signup">👤 회원가입</a>
+    <a href="#shop">🛒 쇼핑몰</a>
     <a href="#board">📋 게시판</a>
     <a href="javascript:void(0)" onclick="adminLogin()">🔐 관리자</a>
   </div>
@@ -172,6 +173,72 @@ function toggleDetail(id){
 현재 화면은 홈페이지에 회원가입·게시판·관리자 메뉴를 연결한 버전입니다.
 실제 고객 여러 명이 공통으로 사용하는 회원 DB와 게시판은 서버(DB) 연결 후 운영할 수 있습니다.
 </div>
+
+
+<section id="shop" style="padding:60px 20px;background:#f4f8fc;">
+<div style="max-width:1100px;margin:auto;">
+<h2 style="text-align:center;color:#0755a5;margin-bottom:8px;">🛒 수산물 쇼핑몰</h2>
+<p style="text-align:center;color:#666;margin-bottom:28px;">상품을 선택하고 장바구니에 담은 뒤 주문서에서 결제 단계로 진행하세요.</p>
+<div class="shop-grid" id="productList"></div>
+<div class="cart-box">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;">
+    <h3 style="margin:0;">🛍️ 장바구니</h3><button class="cart-clear" onclick="clearCart()">장바구니 비우기</button>
+  </div>
+  <div id="cartList" style="margin-top:14px;"></div>
+  <div class="cart-total"><span>총 결제예정금액</span><strong id="cartTotal">0원</strong></div>
+  <button class="checkout-btn" onclick="openCheckout()">주문서 작성 → 결제 단계로</button>
+</div>
+
+<div id="checkoutPanel" class="checkout-panel" style="display:none;">
+<h3>🧾 주문서</h3>
+<p class="checkout-note">아래 정보를 입력한 뒤 결제하기 단계로 이동합니다.</p>
+<div class="checkout-form">
+<label>주문자 이름<input id="buyerName" placeholder="이름" required></label>
+<label>휴대폰번호<input id="buyerPhone" placeholder="010-0000-0000" required></label>
+<label>배송주소<input id="buyerAddress" placeholder="받으실 주소" required></label>
+<label>배송 요청사항<textarea id="buyerMemo" rows="3" placeholder="배송 요청사항(선택)" ></textarea></label>
+</div>
+<div class="order-summary" id="orderSummary"></div>
+<button class="checkout-btn" onclick="goPaymentStep()">💳 결제하기</button>
+<div id="paymentStep" style="display:none;margin-top:18px;padding:18px;border-radius:14px;background:#eef6ff;border:1px solid #c7def5;">
+<h4 style="margin:0 0 8px;color:#0755a5;">결제 단계</h4>
+<p style="margin:0 0 12px;color:#555;">주문 정보가 준비되었습니다. 실제 카드·간편결제 결제를 사용하려면 결제대행사(PG) 계정과 서버 결제 연동이 필요합니다.</p>
+<button class="realpay-placeholder" onclick="showPaymentNotice()">결제 시스템 연결하기</button>
+</div>
+</div>
+</div></section>
+<style>
+.shop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.shop-card{background:#fff;border:1px solid #dbe5ef;border-radius:18px;padding:20px;text-align:center;box-shadow:0 5px 18px #00285010}
+.shop-img{height:130px;border-radius:14px;background:#eaf5ff;display:flex;align-items:center;justify-content:center;font-size:58px;margin-bottom:14px}
+.shop-card h3{margin:6px 0}.shop-card p{color:#667;min-height:44px;line-height:1.5}.shop-price{font-size:20px;font-weight:800;color:#0755a5;margin:10px 0}.qty-row{display:flex;justify-content:center;align-items:center;gap:8px;margin:10px 0}.qty-row input{width:55px;padding:8px;border:1px solid #ccd7e2;border-radius:8px;text-align:center}.shop-add,.checkout-btn,.realpay-placeholder,.cart-clear{border:0;border-radius:9px;padding:11px 15px;font-weight:800;cursor:pointer}.shop-add{background:#0755a5;color:#fff;width:100%}.cart-box,.checkout-panel{background:#fff;border:1px solid #dbe5ef;border-radius:18px;padding:24px;margin-top:24px;box-shadow:0 5px 18px #00285010}.cart-clear{background:#eef2f6;color:#345}.cart-row{display:grid;grid-template-columns:1fr auto auto auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid #eee}.cart-row button{border:1px solid #ddd;background:#fff;border-radius:7px;padding:5px 9px}.cart-total{display:flex;justify-content:space-between;font-size:18px;padding:18px 0}.cart-total strong{color:#0755a5;font-size:22px}.checkout-btn{background:#0755a5;color:#fff;width:100%;font-size:16px}.checkout-form{display:grid;grid-template-columns:1fr 1fr;gap:12px}.checkout-form label{font-weight:700}.checkout-form input,.checkout-form textarea{width:100%;margin-top:6px;box-sizing:border-box;padding:12px;border:1px solid #ccd7e2;border-radius:9px;font:inherit}.checkout-form label:nth-child(3),.checkout-form label:nth-child(4){grid-column:1/-1}.order-summary{background:#f7fafc;border-radius:12px;padding:15px;margin:18px 0;line-height:1.8}.realpay-placeholder{background:#111;color:#fff;width:100%;font-size:15px}.checkout-note{color:#666}.empty-cart{color:#999;text-align:center;padding:18px}
+@media(max-width:850px){.shop-grid{grid-template-columns:1fr 1fr}}@media(max-width:600px){.shop-grid{grid-template-columns:1fr}.cart-row{grid-template-columns:1fr auto}.cart-row .cart-price,.cart-row .cart-remove{grid-column:auto}.checkout-form{grid-template-columns:1fr}.checkout-form label:nth-child(3),.checkout-form label:nth-child(4){grid-column:auto}}
+</style>
+<script>
+const shopProducts=[
+ {id:'squid',name:'반건조 오징어',price:0,icon:'🦑',desc:'반건조 상품 준비 예정'},
+ {id:'corvina',name:'반건조 조기',price:0,icon:'🐟',desc:'반건조 상품 준비 예정'},
+ {id:'mackerel',name:'반건조 고등어',price:0,icon:'🐟',desc:'반건조 상품 준비 예정'},
+ {id:'abalone',name:'전복',price:0,icon:'🦪',desc:'전복 상품 준비 예정'}
+];
+let shopCart=JSON.parse(localStorage.getItem('gn_cart')||'[]');
+function money(n){return Number(n).toLocaleString('ko-KR')+'원';}
+function renderProducts(){
+ const box=document.getElementById('productList');
+ box.innerHTML=shopProducts.map(p=>`<div class="shop-card"><div class="shop-img">${p.icon}</div><h3>${p.name}</h3><p>${p.desc}</p><div class="shop-price">${p.price>0?money(p.price):'가격 준비중'}</div><div class="qty-row"><span>수량</span><input id="qty-${p.id}" type="number" min="1" value="1"></div><button class="shop-add" onclick="addToCart('${p.id}')" ${p.price<=0?'disabled style="opacity:.5;cursor:not-allowed"':''}>${p.price>0?'🛒 장바구니 담기':'가격 입력 후 판매'}</button></div>`).join('');
+}
+function addToCart(id){const p=shopProducts.find(x=>x.id===id);const q=Math.max(1,Number(document.getElementById('qty-'+id).value)||1);const old=shopCart.find(x=>x.id===id);if(old)old.qty+=q;else shopCart.push({id,qty:q});saveCart();renderCart();}
+function saveCart(){localStorage.setItem('gn_cart',JSON.stringify(shopCart));}
+function clearCart(){shopCart=[];saveCart();renderCart();}
+function removeCart(id){shopCart=shopCart.filter(x=>x.id!==id);saveCart();renderCart();}
+function changeCart(id,d){const x=shopCart.find(x=>x.id===id);if(!x)return;x.qty=Math.max(1,x.qty+d);saveCart();renderCart();}
+function renderCart(){const box=document.getElementById('cartList');let total=0;if(!shopCart.length){box.innerHTML='<div class="empty-cart">장바구니가 비어 있습니다.</div>';}else{box.innerHTML=shopCart.map(c=>{const p=shopProducts.find(x=>x.id===c.id);const sub=p.price*c.qty;total+=sub;return `<div class="cart-row"><div><b>${p.name}</b><div style="color:#777;font-size:13px;">${money(p.price)} × ${c.qty}</div></div><div><button onclick="changeCart('${p.id}',-1)">−</button> <b>${c.qty}</b> <button onclick="changeCart('${p.id}',1)">+</button></div><div class="cart-price"><b>${money(sub)}</b></div><button class="cart-remove" onclick="removeCart('${p.id}')">삭제</button></div>`}).join('');}document.getElementById('cartTotal').textContent=money(total);}
+function openCheckout(){if(!shopCart.length){alert('먼저 상품을 장바구니에 담아주세요.');return;}document.getElementById('checkoutPanel').style.display='block';document.getElementById('checkoutPanel').scrollIntoView({behavior:'smooth',block:'start'});renderOrderSummary();}
+function renderOrderSummary(){let total=0;const rows=shopCart.map(c=>{const p=shopProducts.find(x=>x.id===c.id);const sub=p.price*c.qty;total+=sub;return `<div>${p.name} × ${c.qty} — <b>${money(sub)}</b></div>`}).join('');document.getElementById('orderSummary').innerHTML='<b>주문상품</b>'+rows+'<hr><b>총 결제금액: '+money(total)+'</b>';}
+function goPaymentStep(){const n=document.getElementById('buyerName').value.trim(),ph=document.getElementById('buyerPhone').value.trim(),ad=document.getElementById('buyerAddress').value.trim();if(!n||!ph||!ad){alert('주문자 이름, 휴대폰번호, 배송주소를 입력해주세요.');return;}document.getElementById('paymentStep').style.display='block';document.getElementById('paymentStep').scrollIntoView({behavior:'smooth',block:'center'});}
+function showPaymentNotice(){alert('현재는 결제 화면까지 연결된 준비본입니다. 실제 결제를 사용하려면 PG(예: 토스페이먼츠) 계정과 서버 연동이 필요합니다.');}
+document.addEventListener('DOMContentLoaded',()=>{renderProducts();renderCart();});
+</script>
 
 <section id="signup" style="padding:60px 20px;background:#f5f9fc;">
 <div style="max-width:700px;margin:auto;">
